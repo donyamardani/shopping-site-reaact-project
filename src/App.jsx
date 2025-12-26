@@ -1,37 +1,36 @@
 import React from 'react'
-import  { Toaster } from 'react-hot-toast'
 import { CssBaseline } from '@mui/material'
-import { useSelector } from 'react-redux'
-import Navbar from "./Components/Navbar"
-import { Navigate, Route, Routes } from 'react-router-dom'
-import  Home  from './Pages/Home'
+import Navbar from './Components/Navbar'
+import { Route, Routes,Navigate } from 'react-router-dom'
+import Home from './Pages/Home'
 import About from './Pages/About'
+import { useSelector } from 'react-redux'
 import Auth from './Pages/Auth'
-import Cart from'./Pages/Cart'
+import Cart from './Pages/Cart'
 import Category from './Pages/Category'
 import Products from './Pages/Products'
 import ProductDetails from './Pages/ProductDetails'
 import NotFound from './Pages/NotFound'
-
+import Footer from './Components/Footer'
+import { Toaster } from 'react-hot-toast'
 export default function App() {
-  const {token}=useSelector(state=>state.auth)
+    const {token}=useSelector(state=>state.auth)
   return (
-    <>
-    <CssBaseline/>
-    <Navbar/>
-    <Routes>
-      <Route exact path='/' element={<Home/>}/>
-      <Routes path='/about' element={<About/>}/>
-        <Routes path='/auth' element={token?<Navigate to={'/'}/>:<Auth/>}/>
-        <Routes path='/cart' element={!token?<Navigate to={'/'}/>:<Cart/>}/>
-        <Routes path='/category' element={<Category/>}/>
-        <Routes path='/product' element={<Products/>}/>
-        <Routes path='/productDetail' element={<ProductDetails/>}/>
-        <Routes path='*' element={<NotFound/>}/>
-            
-    </Routes>
-    <Footer/>
-    <Toaster/>
-    </>
+  <>
+  <CssBaseline/>
+  <Navbar/>
+  <Routes>
+    <Route exact path='/' element={<Home/>}/>
+    <Route path='/about' element={<About/>}/>
+    <Route path='/auth' element={token?<Navigate to={'/'}/>:<Auth/>}/>
+    <Route path='/cart' element={!token?<Navigate to={'/auth'}/>:<Cart/>}/>
+    <Route path='/category' element={<Category/>}/>
+    <Route path='/products' element={<Products/>}/>
+    <Route path='/product-details/:id/:name' element={<ProductDetails/>}/>
+    <Route path='*' element={<NotFound/>}/>
+  </Routes>
+  <Footer/>
+  <Toaster/>
+  </>
   )
 }
