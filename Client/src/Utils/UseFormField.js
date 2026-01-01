@@ -1,11 +1,13 @@
 import { useState } from "react"
-
 const useFormFields=()=>{
     const [fields,setFields]=useState({})
     const handleChange=(e)=>{
+        const {target}=e
         setFields({
-            ...fields,[e.target.name]:e.target.value
+            ...fields,
+            [target.name]:target.value
         })
+
     }
     return [fields,handleChange]
 }

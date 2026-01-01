@@ -13,12 +13,14 @@ import ProductDetails from './Pages/ProductDetails'
 import NotFound from './Pages/NotFound'
 import Footer from './Components/Footer'
 import { Toaster } from 'react-hot-toast'
+import {Box} from '@mui/material'
 export default function App() {
     const {token}=useSelector(state=>state.auth)
   return (
   <>
   <CssBaseline/>
   <Navbar/>
+   <Box minHeight={'90vh'}>
   <Routes>
     <Route exact path='/' element={<Home/>}/>
     <Route path='/about' element={<About/>}/>
@@ -29,6 +31,7 @@ export default function App() {
     <Route path='/product-details/:id/:name' element={<ProductDetails/>}/>
     <Route path='*' element={<NotFound/>}/>
   </Routes>
+   </Box>
   <Footer/>
   <Toaster/>
   </>

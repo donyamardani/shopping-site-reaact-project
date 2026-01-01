@@ -1,0 +1,21 @@
+.banner.swiper  {
+    width: 100%;
+    height: 100%;
+  }
+  
+.banner.swiper   .swiper-slide {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .banner.swiper  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .banner.swiper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+

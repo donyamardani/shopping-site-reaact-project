@@ -1,0 +1,23 @@
+.lastProduct.swiper  {
+    width: 100%;
+    height: 100%;
+  }
+  
+.lastProduct.swiper   .swiper-slide {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .lastProduct.swiper  .swiper-slide img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .lastProduct.swiper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+
