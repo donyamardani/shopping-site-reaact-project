@@ -31,7 +31,7 @@ export default function ProductsCard({description,img,name,id,price}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small"><Link to={`/productDetails/${id}/${name.replaceAll(' ','_')}`}>more information...</Link></Button>
+        <Button size="small"><Link to={`/product-details/${id}/${name.replaceAll(' ','_')}`}>more information...</Link></Button>
       </CardActions>
     </Card>
   );
