@@ -126,7 +126,7 @@ export default function Navbar() {
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white", display: "block" }}
             >
-              <Link to={"/products"} style={{color:'white'}}>Products</Link>
+              <Link to={"/products/all/all-category"} style={{color:'white'}}>Products</Link>
             </Button>
             <Button
               onClick={handleCloseNavMenu}
