@@ -14,10 +14,10 @@ const cartSlice=createSlice({
         remove(state,action){
             const productId=action.payload
             state.items=state.items.filter(e=>{
-                if(e.id==productId){
-                    e.quantity=e.quantity-1
-                    state.totalPrice= state.totalPrice- e?.attributes?.price / 100
-                    if(e.quantity==0){
+                if(e._id==productId){
+                    e.cartQuantity=e.cartQuantity-1
+                    state.totalPrice= state.totalPrice- e?.price
+                    if(e.cartQuantity==0){
                         return false
                     }
                 }
@@ -27,16 +27,16 @@ const cartSlice=createSlice({
         add(state,action){
             let add=false
             const product=action.payload
-            state.totalPrice=state.totalPrice + product?.attributes?.price / 100
+            state.totalPrice=state.totalPrice + product?.price
             state.items=state.items?.map(e=>{
-                if(e.id == product.id){
-                    e.quantity=e.quantity+1
+                if(e._id == product._id){
+                    e.cartQuantity=e.cartQuantity+1
                     add=true
                 }
                 return e
             })
            if(!add){
-            state.items.push({...product,quantity:1})
+            state.items.push({...product,cartQuantity:1})
            }
         }
     }
